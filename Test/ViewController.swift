@@ -18,6 +18,7 @@ class ViewController: UIViewController {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib1 = UINib(nibName: Constants.reuseID, bundle: Bundle.main)
@@ -45,11 +46,15 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             cell.lblWords.isHidden = false
             cell.tfWord.isHidden = true
             cell.lblWords.text = word
+            cell.lblWords.backgroundColor = UIColor.init(red: 239/255, green: 239/255, blue: 239/255, alpha: 1)
+            cell.layer.borderWidth = 0
+            cell.layer.borderColor = UIColor.clear.cgColor
         }
         else{
             cell.lblWords.isHidden = true
+            cell.tfWord.backgroundColor = UIColor.white
             cell.tfWord.isHidden = false
-            cell.tfWord.text =  "         "
+            cell.tfWord.text =  "_________________"
             cell.tfWord.isUserInteractionEnabled = true
             cell.layer.borderWidth = Constants.borderWidth
             cell.layer.borderColor = UIColor.lightGray.cgColor

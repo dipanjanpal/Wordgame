@@ -15,6 +15,8 @@
 		946DC4B82433A535003F14B6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DC4B62433A535003F14B6 /* CollectionViewCell.swift */; };
 		946DC4B92433A535003F14B6 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 946DC4B72433A535003F14B6 /* CollectionViewCell.xib */; };
 		946DC4BB2433ACED003F14B6 /* CreateBlanks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */; };
+		94B3E13E24344849008E2DEE /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3E13D24344849008E2DEE /* CommonConstants.swift */; };
+		94B3E14024344C3F008E2DEE /* WordGameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3E13F24344C3F008E2DEE /* WordGameTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		946DC4B62433A535003F14B6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		946DC4B72433A535003F14B6 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBlanks.swift; sourceTree = "<group>"; };
+		94B3E13D24344849008E2DEE /* CommonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
+		94B3E13F24344C3F008E2DEE /* WordGameTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				946DC4B62433A535003F14B6 /* CollectionViewCell.swift */,
 				946DC4B72433A535003F14B6 /* CollectionViewCell.xib */,
 				946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */,
+				94B3E13D24344849008E2DEE /* CommonConstants.swift */,
+				94B3E13F24344C3F008E2DEE /* WordGameTextField.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -146,7 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				946DC4BB2433ACED003F14B6 /* CreateBlanks.swift in Sources */,
+				94B3E13E24344849008E2DEE /* CommonConstants.swift in Sources */,
 				946DC4A72433A409003F14B6 /* ViewController.swift in Sources */,
+				94B3E14024344C3F008E2DEE /* WordGameTextField.swift in Sources */,
 				946DC4A32433A409003F14B6 /* AppDelegate.swift in Sources */,
 				946DC4B82433A535003F14B6 /* CollectionViewCell.swift in Sources */,
 			);
