@@ -16,14 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1UN-Vo-Zhg">
+                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1UN-Vo-Zhg" customClass="WordGameTextField" customModule="Test" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0a-31-wKM">
                         <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
-                        <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
             <size key="customSize" width="165" height="44"/>
             <connections>
                 <outlet property="lblWords" destination="c0a-31-wKM" id="FUQ-rK-6IJ"/>
-                <outlet property="tfWord" destination="1UN-Vo-Zhg" id="fxo-qj-Ib2"/>
+                <outlet property="tfWord" destination="1UN-Vo-Zhg" id="PbD-71-0y0"/>
             </connections>
             <point key="canvasLocation" x="221.01449275362322" y="141.96428571428569"/>
         </collectionViewCell>

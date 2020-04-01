@@ -25,37 +25,10 @@ class CreateBlanks{
                 arrWords.append(word)
             }
         }
-        
-        //print(arrWords)
+
         return arrWords
     }
-    
-//    func createLines() -> [String]{
-//        let arrLines = createWordsCollection()
-//        var arrLinesCollection = [String]()
-//        for item in arrLines{
-//            var arrTemp = [String]()
-//            item.forEach { (word) in
-//                if word == "_"{
-//                    let line = arrTemp.joined(separator: " ")
-//                    arrLinesCollection.append(line)
-//                    arrLinesCollection.append("_")
-//                    arrTemp.removeAll()
-//                }
-//                else if word == "."{
-//                    arrTemp.append(word)
-//                    let line = arrTemp.joined(separator: " ")
-//                    arrLinesCollection.append(line)
-//                    arrTemp.removeAll()
-//                }
-//                else{
-//                    arrTemp.append(word)
-//                }
-//                
-//            }
-//        }
-//        return arrLinesCollection
-//    }
+
     
     
     func removeVerbs(for text: String) -> [String]{
@@ -68,6 +41,7 @@ class CreateBlanks{
                 let word = (text as NSString).substring(with: tokenRange)
                 if (tag.rawValue == "Verb" && varbsFilter.contains(word) != true && newItem.contains("_") != true){
                     newItem.append("_")
+                    CommonConstants.shared.arrActualRemovedWords.append(word)
                 }
                 else{
                      newItem.append(word)
@@ -76,6 +50,11 @@ class CreateBlanks{
             }
         }
         newItem.append(".")
+        if (newItem.contains("_") == false){
+            let randNum = Int.random(in: 0...6)
+            CommonConstants.shared.arrActualRemovedWords.append(newItem[randNum])
+            newItem.insert("_", at: randNum)
+        }
         return newItem
     }
 
