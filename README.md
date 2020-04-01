@@ -10,10 +10,10 @@ He/she gets a score out of 10, depending on the number of blanks that were corre
 ###Technology used
 The game is implemented using Swift 5 and Xcode 11.2.1
 
-NSLinguisticTagger - NLP technology is used here to detect the words to remove. Different levels will have different algorithm
+*[NSLinguisticTagger] - NLP technology is used here to detect the words to remove. Different levels will have different algorithm
 to remove words.
-URLSession - To fetch paragraphs
-Components - Native iOS components
+*[URLSession] - To fetch paragraphs
+*[Components] - Native iOS components
 
 #### Installation
 Clone or download the project. Open with latest xCode.
