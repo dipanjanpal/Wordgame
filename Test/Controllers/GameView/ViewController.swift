@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: viewlifecycle functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,8 @@ class ViewController: UIViewController {
         
     }
 
+    //MARK: button actions
+    
     @IBAction func btnResetAction(_ sender: Any) {
         arrWords.removeAll()
         
@@ -69,14 +72,22 @@ class ViewController: UIViewController {
         
     }
     
+    
+    // MARK: custom functions
+    // netwrok calls
     func getParagraph() {
         viewLoader.isHidden = false
-        BaseNetworking.getParagraph { (model) in
+        BaseNetworking.getApi { (model) in
             DispatchQueue.main.async {
-                let objItems = CreateBlanks(para: model.paras?[2] ?? "")
+                let randomPara = Int.random(in: 0...5)
+                let objItems = CreateBlanks(para: model.paras?[randomPara] ?? "")
                 self.arrWords = objItems.createWordsCollection()
                 self.collectionMain.reloadData()
                 self.viewLoader.isHidden = true
+                
+                
+                let lastIndexPath = IndexPath(item: self.arrWords.count / 2, section: 0)
+                self.collectionMain.scrollToItem(at: lastIndexPath, at: UICollectionView.ScrollPosition.bottom, animated: true)
             }
         }
     }
@@ -118,12 +129,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             cell.layer.borderWidth = Constants.borderWidth
             cell.layer.borderColor = UIColor.lightGray.cgColor
         }
-        
-        //cell.maxWidth = collectionView.bounds.width - Constants.spacing
+
         return cell
     }
 }
-
+//MARK: constants for only this file
 private enum Constants {
     static let spacing: CGFloat = 16
     static let borderWidth: CGFloat = 0.5

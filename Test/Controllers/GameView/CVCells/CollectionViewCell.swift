@@ -31,6 +31,21 @@ class CollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    //MARK: button actions
+    @objc func doneButtonAction()
+    {
+        chosenWord = CommonConstants.shared.arrShuffeledWords[arrWordsSelectedIndex]
+        tfWord.text = chosenWord
+        if indexPathRow != -1{
+            CommonConstants.shared.arrUserInputtedWords[indexPathRow] = chosenWord
+        }
+        CommonConstants.shared.arrShuffeledWords.remove(at: arrWordsSelectedIndex)
+        contentView.endEditing(true)
+        pickerWords.reloadAllComponents()
+    }
+    
+    
+    //MARK: custom functions
     func addWordsPicker(){
         
         pickerWords.delegate = self
@@ -60,17 +75,7 @@ class CollectionViewCell: UICollectionViewCell {
         tfWord.inputAccessoryView = doneToolbar
     }
     
-    @objc func doneButtonAction()
-    {
-        chosenWord = CommonConstants.shared.arrShuffeledWords[arrWordsSelectedIndex]
-        tfWord.text = chosenWord
-        if indexPathRow != -1{
-            CommonConstants.shared.arrUserInputtedWords[indexPathRow] = chosenWord
-        }
-        CommonConstants.shared.arrShuffeledWords.remove(at: arrWordsSelectedIndex)
-        contentView.endEditing(true)
-        pickerWords.reloadAllComponents()
-    }
+    
     
 }
 

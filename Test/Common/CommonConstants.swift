@@ -17,6 +17,7 @@ class CommonConstants{
     var arrUserInputtedWords = [Int : String]()
     var level = 1
     
+    //common alert function for all viewcontrollers
     func alert(message : String, vc : UIViewController){
         let alert = UIAlertController(title: "WordGame", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

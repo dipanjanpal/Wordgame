@@ -8,7 +8,9 @@
 
 import Foundation
 class BaseNetworking{
-    static func getParagraph(completion : @escaping (_ model : WikiParaModel) -> ()){
+    
+    //MARK: - common get api function
+    static func getApi(completion : @escaping (_ model : WikiParaModel) -> ()){
         let url = URL(string: CommonConstants.shared.BASEURL)
         let session = URLSession.shared
         let task = session.dataTask(with: url!) { (data, response, error) in
