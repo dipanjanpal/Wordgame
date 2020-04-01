@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 class CommonConstants{
     init(){}
     static let shared = CommonConstants()
@@ -15,4 +15,10 @@ class CommonConstants{
     var arrActualRemovedWords = [String]()
     var arrUserInputtedWords = [Int : String]()
     var level = 1
+    
+    func alert(message : String, vc : UIViewController){
+        let alert = UIAlertController(title: "WordGame", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        vc.navigationController?.present(alert, animated: true, completion: nil)
+    }
 }

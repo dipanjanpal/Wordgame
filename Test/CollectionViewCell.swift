@@ -9,7 +9,7 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var tfWord: WordGameTextField!
+    @IBOutlet weak var tfWord: UITextField!
     @IBOutlet weak var lblWords: UILabel!
     let doneToolbar: UIToolbar = UIToolbar()
     let pickerWords = UIPickerView()
