@@ -19,6 +19,9 @@ class ScoreboardViewController: UIViewController {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
+    
+    //MARK: viewlifecycle functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +34,13 @@ class ScoreboardViewController: UIViewController {
         collectionMain.reloadData()
     }
     
+    //MARK: button actions
+    @IBAction func btnDoneAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: custom functions
+    // score evaluation logic
     func evaluate(keysForUSerInputes :[Int]) -> Int{
         var index = 0
         var score = 0
@@ -50,10 +60,6 @@ class ScoreboardViewController: UIViewController {
             
         }
         return score
-    }
-    
-    @IBAction func btnDoneAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
     }
     
 }
@@ -90,7 +96,7 @@ extension ScoreboardViewController: UICollectionViewDataSource, UICollectionView
         return cell
     }
 }
-
+//MARK: constants for this file only
 private enum Constants {
     static let reuseID = "CollectionViewCell"
     static let scoreBoardID = "ScoreboardViewController"

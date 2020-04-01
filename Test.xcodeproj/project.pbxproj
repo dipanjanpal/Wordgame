@@ -68,21 +68,77 @@
 		946DC4A12433A409003F14B6 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				949C948D2434AA1600034092 /* LogicBuilder */,
+				949C94892434A9BE00034092 /* Common */,
 				94BA80FC2434971D00598086 /* WikiParaModel */,
 				946DC4A22433A409003F14B6 /* AppDelegate.swift */,
-				946DC4A62433A409003F14B6 /* ViewController.swift */,
-				946DC4A82433A409003F14B6 /* Main.storyboard */,
+				949C948C2434AA0000034092 /* Controllers */,
+				949C948B2434A9E900034092 /* Storyboards */,
 				946DC4AB2433A40D003F14B6 /* Assets.xcassets */,
-				946DC4AD2433A40D003F14B6 /* LaunchScreen.storyboard */,
 				946DC4B02433A40D003F14B6 /* Info.plist */,
-				946DC4B62433A535003F14B6 /* CollectionViewCell.swift */,
-				946DC4B72433A535003F14B6 /* CollectionViewCell.xib */,
-				946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */,
-				94B3E13D24344849008E2DEE /* CommonConstants.swift */,
-				94BA80FA2434584800598086 /* ScoreboardViewController.swift */,
 				94BA81032434A57200598086 /* BaseNetwork */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		949C94872434A98000034092 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				949C94882434A9A900034092 /* CVCells */,
+				946DC4A62433A409003F14B6 /* ViewController.swift */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
+		949C94882434A9A900034092 /* CVCells */ = {
+			isa = PBXGroup;
+			children = (
+				946DC4B62433A535003F14B6 /* CollectionViewCell.swift */,
+				946DC4B72433A535003F14B6 /* CollectionViewCell.xib */,
+			);
+			path = CVCells;
+			sourceTree = "<group>";
+		};
+		949C94892434A9BE00034092 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				94B3E13D24344849008E2DEE /* CommonConstants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		949C948A2434A9CC00034092 /* ScoreView */ = {
+			isa = PBXGroup;
+			children = (
+				94BA80FA2434584800598086 /* ScoreboardViewController.swift */,
+			);
+			path = ScoreView;
+			sourceTree = "<group>";
+		};
+		949C948B2434A9E900034092 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				946DC4A82433A409003F14B6 /* Main.storyboard */,
+				946DC4AD2433A40D003F14B6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		949C948C2434AA0000034092 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				949C94872434A98000034092 /* GameView */,
+				949C948A2434A9CC00034092 /* ScoreView */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		949C948D2434AA1600034092 /* LogicBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */,
+			);
+			path = LogicBuilder;
 			sourceTree = "<group>";
 		};
 		94BA80FC2434971D00598086 /* WikiParaModel */ = {
