@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     var arrWords = [String]()
     
+    @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var collectionMain: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!{
         didSet {
@@ -21,6 +22,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblLevel.text = "Level : \(CommonConstants.shared.level)"
+        
         let nib1 = UINib(nibName: Constants.reuseID, bundle: Bundle.main)
         collectionMain.register(nib1, forCellWithReuseIdentifier: Constants.reuseID)
         
@@ -29,7 +32,15 @@ class ViewController: UIViewController {
         collectionMain.reloadData()
     }
 
-
+    @IBAction func btnResetAction(_ sender: Any) {
+        arrWords.removeAll()
+        CommonConstants.shared.arrUserInputtedWords.removeAll()
+        let objItems = CreateBlanks()
+        arrWords = objItems.createWordsCollection()
+        collectionMain.reloadData()
+        
+    }
+    
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -40,7 +51,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.reuseID, for: indexPath) as! CollectionViewCell
-        
+        cell.lblWords.text = nil
+        cell.tfWord.text = nil
+        cell.indexPathRow = indexPath.item
         let word = arrWords[indexPath.item]
         if word != Constants.blank{
             cell.lblWords.isHidden = false
@@ -54,7 +67,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             cell.lblWords.isHidden = true
             cell.tfWord.backgroundColor = UIColor.white
             cell.tfWord.isHidden = false
-            cell.tfWord.text =  "_________________"
+            if CommonConstants.shared.arrUserInputtedWords[indexPath.item] != nil{
+                cell.tfWord.text = CommonConstants.shared.arrUserInputtedWords[indexPath.item]
+            }
+            else{
+                cell.tfWord.text =  "_________________"
+            }
+            
             cell.tfWord.isUserInteractionEnabled = true
             cell.layer.borderWidth = Constants.borderWidth
             cell.layer.borderColor = UIColor.lightGray.cgColor

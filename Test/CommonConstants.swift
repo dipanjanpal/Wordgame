@@ -11,5 +11,8 @@ import Foundation
 class CommonConstants{
     init(){}
     static let shared = CommonConstants()
+    var arrShuffeledWords = [String]()
     var arrActualRemovedWords = [String]()
+    var arrUserInputtedWords = [Int : String]()
+    var level = 1
 }
