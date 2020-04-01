@@ -17,6 +17,8 @@
 		946DC4BB2433ACED003F14B6 /* CreateBlanks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */; };
 		94B3E13E24344849008E2DEE /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3E13D24344849008E2DEE /* CommonConstants.swift */; };
 		94BA80FB2434584800598086 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA80FA2434584800598086 /* ScoreboardViewController.swift */; };
+		94BA8100243498AF00598086 /* WikiParaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA80FF243498AF00598086 /* WikiParaModel.swift */; };
+		94BA81022434A53F00598086 /* BaseNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA81012434A53F00598086 /* BaseNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBlanks.swift; sourceTree = "<group>"; };
 		94B3E13D24344849008E2DEE /* CommonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
 		94BA80FA2434584800598086 /* ScoreboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
+		94BA80FF243498AF00598086 /* WikiParaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiParaModel.swift; sourceTree = "<group>"; };
+		94BA81012434A53F00598086 /* BaseNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		946DC4A12433A409003F14B6 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				94BA80FC2434971D00598086 /* WikiParaModel */,
 				946DC4A22433A409003F14B6 /* AppDelegate.swift */,
 				946DC4A62433A409003F14B6 /* ViewController.swift */,
 				946DC4A82433A409003F14B6 /* Main.storyboard */,
@@ -75,8 +80,25 @@
 				946DC4BA2433ACED003F14B6 /* CreateBlanks.swift */,
 				94B3E13D24344849008E2DEE /* CommonConstants.swift */,
 				94BA80FA2434584800598086 /* ScoreboardViewController.swift */,
+				94BA81032434A57200598086 /* BaseNetwork */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		94BA80FC2434971D00598086 /* WikiParaModel */ = {
+			isa = PBXGroup;
+			children = (
+				94BA80FF243498AF00598086 /* WikiParaModel.swift */,
+			);
+			path = WikiParaModel;
+			sourceTree = "<group>";
+		};
+		94BA81032434A57200598086 /* BaseNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				94BA81012434A53F00598086 /* BaseNetworking.swift */,
+			);
+			path = BaseNetwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +175,11 @@
 			files = (
 				94BA80FB2434584800598086 /* ScoreboardViewController.swift in Sources */,
 				946DC4BB2433ACED003F14B6 /* CreateBlanks.swift in Sources */,
+				94BA81022434A53F00598086 /* BaseNetworking.swift in Sources */,
 				94B3E13E24344849008E2DEE /* CommonConstants.swift in Sources */,
 				946DC4A72433A409003F14B6 /* ViewController.swift in Sources */,
 				946DC4A32433A409003F14B6 /* AppDelegate.swift in Sources */,
+				94BA8100243498AF00598086 /* WikiParaModel.swift in Sources */,
 				946DC4B82433A535003F14B6 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

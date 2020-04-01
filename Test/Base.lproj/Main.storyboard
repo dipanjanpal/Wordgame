@@ -93,13 +93,34 @@
                                     <constraint firstItem="aNS-PW-6vp" firstAttribute="top" secondItem="YAJ-IJ-7Fs" secondAttribute="top" constant="41" id="x2R-Rq-iAh"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVY-IP-k2y">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="n9T-YL-A4f">
+                                        <rect key="frame" x="192" y="433" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="JQ2-4Y-dKh"/>
+                                            <constraint firstAttribute="width" constant="30" id="mx7-Bz-Ben"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.3418236301369863" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="n9T-YL-A4f" firstAttribute="centerY" secondItem="RVY-IP-k2y" secondAttribute="centerY" id="2c3-91-en9"/>
+                                    <constraint firstItem="n9T-YL-A4f" firstAttribute="centerX" secondItem="RVY-IP-k2y" secondAttribute="centerX" id="Wgt-3g-BCv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="xad-q5-46U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AHQ-rU-xjn"/>
                             <constraint firstItem="xad-q5-46U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EAV-VH-T9d"/>
+                            <constraint firstItem="RVY-IP-k2y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="POg-Ft-wcd"/>
+                            <constraint firstAttribute="bottom" secondItem="RVY-IP-k2y" secondAttribute="bottom" id="PWd-ss-Ui1"/>
                             <constraint firstAttribute="bottom" secondItem="xad-q5-46U" secondAttribute="bottom" id="Xe0-Q6-AZH"/>
                             <constraint firstItem="xad-q5-46U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aMT-tb-8aw"/>
+                            <constraint firstItem="RVY-IP-k2y" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cF4-07-Sfj"/>
+                            <constraint firstItem="RVY-IP-k2y" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wXS-g1-tUS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -108,6 +129,7 @@
                         <outlet property="collectionLayout" destination="wzw-7F-q5R" id="c97-hA-jdm"/>
                         <outlet property="collectionMain" destination="aNS-PW-6vp" id="mb5-kt-dcV"/>
                         <outlet property="lblLevel" destination="YAJ-IJ-7Fs" id="xSS-bS-6h7"/>
+                        <outlet property="viewLoader" destination="RVY-IP-k2y" id="lAu-7F-NuR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
