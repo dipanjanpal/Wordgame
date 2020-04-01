@@ -15,10 +15,13 @@ class CollectionViewCell: UICollectionViewCell {
     let pickerWords = UIPickerView()
     var arrWordsSelectedIndex = 0
     var chosenWord = String()
+    var indexPathRow = -1
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         addWordsPicker()
         addDoneButton()
+        tfWord.delegate =  self
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -59,9 +62,14 @@ class CollectionViewCell: UICollectionViewCell {
     
     @objc func doneButtonAction()
     {
-        chosenWord = CommonConstants.shared.arrActualRemovedWords[arrWordsSelectedIndex]
+        chosenWord = CommonConstants.shared.arrShuffeledWords[arrWordsSelectedIndex]
         tfWord.text = chosenWord
+        if indexPathRow != -1{
+            CommonConstants.shared.arrUserInputtedWords[indexPathRow] = chosenWord
+        }
+        CommonConstants.shared.arrShuffeledWords.remove(at: arrWordsSelectedIndex)
         contentView.endEditing(true)
+        pickerWords.reloadAllComponents()
     }
     
 }
@@ -72,16 +80,25 @@ extension CollectionViewCell : UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return CommonConstants.shared.arrActualRemovedWords.count
+        return CommonConstants.shared.arrShuffeledWords.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return CommonConstants.shared.arrActualRemovedWords[row]
+        return CommonConstants.shared.arrShuffeledWords[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         arrWordsSelectedIndex = row
-        tfWord.text = CommonConstants.shared.arrActualRemovedWords[row]
+        tfWord.text = CommonConstants.shared.arrShuffeledWords[row]
+        
+    }
+}
+
+extension CollectionViewCell : UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text != "_________________"{
+            textField.endEditing(true)
+        }
     }
 }
 
