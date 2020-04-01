@@ -57,7 +57,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjs-um-TwY">
                                         <rect key="frame" x="220" y="814" width="185" height="40"/>
-                                        <color key="backgroundColor" white="0.79209474889999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0Um-DR-dsJ"/>
                                         </constraints>
@@ -136,6 +136,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-ad-hd0">
                                         <rect key="frame" x="20" y="811" width="374" height="65"/>
+                                        <color key="backgroundColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="loT-FX-i40"/>
                                         </constraints>
@@ -145,13 +146,41 @@
                                             <action selector="btnDoneAction:" destination="6mn-z4-NT3" eventType="touchUpInside" id="6Y4-WM-TAU"/>
                                         </connections>
                                     </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gRQ-vR-hwq">
+                                        <rect key="frame" x="20" y="122" width="374" height="669"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JXc-VV-aFm">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tHK-uz-Tz9">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rOt-5k-r0s">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="6mn-z4-NT3" id="oa4-M3-23G"/>
+                                            <outlet property="delegate" destination="6mn-z4-NT3" id="5yJ-sl-MMP"/>
+                                        </connections>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="gRQ-vR-hwq" firstAttribute="leading" secondItem="Jty-xj-0yd" secondAttribute="leading" constant="20" id="5CT-WJ-k1o"/>
                                     <constraint firstItem="7aX-1J-VHz" firstAttribute="top" secondItem="Jty-xj-0yd" secondAttribute="top" constant="52" id="JwA-hV-5jD"/>
+                                    <constraint firstAttribute="trailing" secondItem="gRQ-vR-hwq" secondAttribute="trailing" constant="20" id="OIJ-Vp-IkF"/>
                                     <constraint firstAttribute="trailing" secondItem="7aX-1J-VHz" secondAttribute="trailing" constant="20" symbolic="YES" id="eQq-zE-r3X"/>
                                     <constraint firstAttribute="trailing" secondItem="e8A-ad-hd0" secondAttribute="trailing" constant="20" symbolic="YES" id="guZ-0Y-yQC"/>
                                     <constraint firstItem="7aX-1J-VHz" firstAttribute="leading" secondItem="Jty-xj-0yd" secondAttribute="leading" constant="20" symbolic="YES" id="nC3-hN-T7E"/>
+                                    <constraint firstItem="gRQ-vR-hwq" firstAttribute="top" secondItem="7aX-1J-VHz" secondAttribute="bottom" constant="20" id="p6v-h9-EcX"/>
+                                    <constraint firstItem="e8A-ad-hd0" firstAttribute="top" secondItem="gRQ-vR-hwq" secondAttribute="bottom" constant="20" id="sKS-cG-YJz"/>
                                     <constraint firstAttribute="bottom" secondItem="e8A-ad-hd0" secondAttribute="bottom" constant="20" symbolic="YES" id="si8-RW-sR8"/>
                                     <constraint firstItem="e8A-ad-hd0" firstAttribute="leading" secondItem="Jty-xj-0yd" secondAttribute="leading" constant="20" symbolic="YES" id="zwK-A2-y2P"/>
                                 </constraints>
@@ -167,6 +196,8 @@
                         <viewLayoutGuide key="safeArea" id="2cr-vk-xXg"/>
                     </view>
                     <connections>
+                        <outlet property="collectionLayout" destination="JXc-VV-aFm" id="x1w-50-7NP"/>
+                        <outlet property="collectionMain" destination="gRQ-vR-hwq" id="VMd-TD-8jr"/>
                         <outlet property="lblScore" destination="7aX-1J-VHz" id="AbH-Nq-CNR"/>
                     </connections>
                 </viewController>

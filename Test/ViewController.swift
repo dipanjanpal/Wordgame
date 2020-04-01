@@ -67,6 +67,7 @@ class ViewController: UIViewController {
     @IBAction func btnSubmitAction(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let scoreVC = storyBoard.instantiateViewController(withIdentifier: Constants.scoreBoardID) as! ScoreboardViewController
+        scoreVC.arrWords = self.arrWords
         self.present(scoreVC, animated:true, completion:nil)
         
     }
