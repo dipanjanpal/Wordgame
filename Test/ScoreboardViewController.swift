@@ -10,21 +10,33 @@ import UIKit
 
 class ScoreboardViewController: UIViewController {
 
+    @IBOutlet weak var lblScore: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        var arrUserInputtedWordsKeys = Array(CommonConstants.shared.arrUserInputtedWords.keys)
+        arrUserInputtedWordsKeys.sort(by: <)
+        lblScore.text = "Score\n\(evaluate(keysForUSerInputes: arrUserInputtedWordsKeys))"
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func evaluate(keysForUSerInputes :[Int]) -> Int{
+        var index = 0
+        var score = 0
+        for i in keysForUSerInputes{
+            if CommonConstants.shared.arrUserInputtedWords[i] ==  CommonConstants.shared.arrActualRemovedWords[index]{
+                score += 1
+            }
+            index += 1
+        }
+        if score >= 8 && CommonConstants.shared.level != 2{
+            CommonConstants.shared.level += 1
+            
+        }
+        return score
     }
-    */
-
+    
+    @IBAction func btnDoneAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

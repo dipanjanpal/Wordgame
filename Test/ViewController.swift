@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var arrWords = [String]()
-    
+    var currentLevel : Int = 100
     @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var collectionMain: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!{
@@ -19,28 +19,57 @@ class ViewController: UIViewController {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblLevel.text = "Level : \(CommonConstants.shared.level)"
+        
         
         let nib1 = UINib(nibName: Constants.reuseID, bundle: Bundle.main)
         collectionMain.register(nib1, forCellWithReuseIdentifier: Constants.reuseID)
         
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if CommonConstants.shared.level > currentLevel {
+            CommonConstants.shared.alert(message: "Congratulations!\nLevel Up", vc: self)
+        }
+        
+        lblLevel.text = "Level : \(CommonConstants.shared.level)"
+        currentLevel = CommonConstants.shared.level
+        arrWords.removeAll()
+        
+        CommonConstants.shared.arrShuffeledWords.removeAll()
+        CommonConstants.shared.arrActualRemovedWords.removeAll()
+        CommonConstants.shared.arrUserInputtedWords.removeAll()
         let objItems = CreateBlanks()
+        
         arrWords = objItems.createWordsCollection()
         collectionMain.reloadData()
+        
     }
 
     @IBAction func btnResetAction(_ sender: Any) {
         arrWords.removeAll()
+        
+        CommonConstants.shared.arrShuffeledWords.removeAll()
+        CommonConstants.shared.arrActualRemovedWords.removeAll()
         CommonConstants.shared.arrUserInputtedWords.removeAll()
+        
         let objItems = CreateBlanks()
         arrWords = objItems.createWordsCollection()
         collectionMain.reloadData()
         
     }
     
+    @IBAction func btnSubmitAction(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let scoreVC = storyBoard.instantiateViewController(withIdentifier: Constants.scoreBoardID) as! ScoreboardViewController
+        self.present(scoreVC, animated:true, completion:nil)
+        
+    }
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -67,11 +96,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
             cell.lblWords.isHidden = true
             cell.tfWord.backgroundColor = UIColor.white
             cell.tfWord.isHidden = false
-            if CommonConstants.shared.arrUserInputtedWords[indexPath.item] != nil{
+            if (CommonConstants.shared.arrUserInputtedWords[indexPath.item] != nil || CommonConstants.shared.arrUserInputtedWords[indexPath.item] == "_________________"){
                 cell.tfWord.text = CommonConstants.shared.arrUserInputtedWords[indexPath.item]
             }
             else{
                 cell.tfWord.text =  "_________________"
+                CommonConstants.shared.arrUserInputtedWords[indexPath.item] = "_________________"
             }
             
             cell.tfWord.isUserInteractionEnabled = true
@@ -88,6 +118,7 @@ private enum Constants {
     static let spacing: CGFloat = 16
     static let borderWidth: CGFloat = 0.5
     static let reuseID = "CollectionViewCell"
+    static let scoreBoardID = "ScoreboardViewController"
     static let blank = "_"
 }
 

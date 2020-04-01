@@ -49,7 +49,11 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GQj-sw-K8p"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="btnSubmitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sjf-qW-6vL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjs-um-TwY">
                                         <rect key="frame" x="220" y="814" width="185" height="40"/>
@@ -57,6 +61,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0Um-DR-dsJ"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Replay"/>
                                         <connections>
                                             <action selector="btnResetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FZX-Sf-35s"/>
@@ -112,7 +117,7 @@
         <!--ScoreboardViewController-->
         <scene sceneID="VyJ-fK-ubD">
             <objects>
-                <viewController storyboardIdentifier="ScoreboardViewController" title="ScoreboardViewController" id="6mn-z4-NT3" customClass="ScoreboardViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScoreboardViewController" title="ScoreboardViewController" modalPresentationStyle="fullScreen" id="6mn-z4-NT3" customClass="ScoreboardViewController" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEA-Po-Gxr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,12 +134,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-ad-hd0">
+                                        <rect key="frame" x="20" y="811" width="374" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="loT-FX-i40"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="btnDoneAction:" destination="6mn-z4-NT3" eventType="touchUpInside" id="6Y4-WM-TAU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="7aX-1J-VHz" firstAttribute="top" secondItem="Jty-xj-0yd" secondAttribute="top" constant="52" id="JwA-hV-5jD"/>
                                     <constraint firstAttribute="trailing" secondItem="7aX-1J-VHz" secondAttribute="trailing" constant="20" symbolic="YES" id="eQq-zE-r3X"/>
+                                    <constraint firstAttribute="trailing" secondItem="e8A-ad-hd0" secondAttribute="trailing" constant="20" symbolic="YES" id="guZ-0Y-yQC"/>
                                     <constraint firstItem="7aX-1J-VHz" firstAttribute="leading" secondItem="Jty-xj-0yd" secondAttribute="leading" constant="20" symbolic="YES" id="nC3-hN-T7E"/>
+                                    <constraint firstAttribute="bottom" secondItem="e8A-ad-hd0" secondAttribute="bottom" constant="20" symbolic="YES" id="si8-RW-sR8"/>
+                                    <constraint firstItem="e8A-ad-hd0" firstAttribute="leading" secondItem="Jty-xj-0yd" secondAttribute="leading" constant="20" symbolic="YES" id="zwK-A2-y2P"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -147,6 +166,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2cr-vk-xXg"/>
                     </view>
+                    <connections>
+                        <outlet property="lblScore" destination="7aX-1J-VHz" id="AbH-Nq-CNR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lco-x1-LfL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

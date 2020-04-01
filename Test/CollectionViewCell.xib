@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1UN-Vo-Zhg" customClass="WordGameTextField" customModule="Test" customModuleProvider="target">
+                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1UN-Vo-Zhg">
                         <rect key="frame" x="0.0" y="0.0" width="165" height="44"/>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -44,7 +45,7 @@
             <size key="customSize" width="165" height="44"/>
             <connections>
                 <outlet property="lblWords" destination="c0a-31-wKM" id="FUQ-rK-6IJ"/>
-                <outlet property="tfWord" destination="1UN-Vo-Zhg" id="PbD-71-0y0"/>
+                <outlet property="tfWord" destination="1UN-Vo-Zhg" id="Utq-z0-VaY"/>
             </connections>
             <point key="canvasLocation" x="221.01449275362322" y="141.96428571428569"/>
         </collectionViewCell>

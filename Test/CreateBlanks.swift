@@ -26,6 +26,7 @@ class CreateBlanks{
             }
         }
         CommonConstants.shared.arrShuffeledWords = CommonConstants.shared.arrActualRemovedWords.shuffled()
+        print("actual words ===>>>",CommonConstants.shared.arrActualRemovedWords)
         return arrWords
     }
 
