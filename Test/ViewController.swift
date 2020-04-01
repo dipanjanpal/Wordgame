@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     var arrWords = [String]()
     var currentLevel : Int = 100
+    @IBOutlet weak var viewLoader: UIView!
     @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var collectionMain: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!{
@@ -44,10 +45,8 @@ class ViewController: UIViewController {
         CommonConstants.shared.arrShuffeledWords.removeAll()
         CommonConstants.shared.arrActualRemovedWords.removeAll()
         CommonConstants.shared.arrUserInputtedWords.removeAll()
-        let objItems = CreateBlanks()
         
-        arrWords = objItems.createWordsCollection()
-        collectionMain.reloadData()
+        getParagraph()
         
     }
 
@@ -58,9 +57,7 @@ class ViewController: UIViewController {
         CommonConstants.shared.arrActualRemovedWords.removeAll()
         CommonConstants.shared.arrUserInputtedWords.removeAll()
         
-        let objItems = CreateBlanks()
-        arrWords = objItems.createWordsCollection()
-        collectionMain.reloadData()
+        getParagraph()
         
     }
     
@@ -70,6 +67,18 @@ class ViewController: UIViewController {
         scoreVC.arrWords = self.arrWords
         self.present(scoreVC, animated:true, completion:nil)
         
+    }
+    
+    func getParagraph() {
+        viewLoader.isHidden = false
+        BaseNetworking.getParagraph { (model) in
+            DispatchQueue.main.async {
+                let objItems = CreateBlanks(para: model.paras?[2] ?? "")
+                self.arrWords = objItems.createWordsCollection()
+                self.collectionMain.reloadData()
+                self.viewLoader.isHidden = true
+            }
+        }
     }
 }
 

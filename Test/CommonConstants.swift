@@ -11,6 +11,7 @@ import UIKit
 class CommonConstants{
     init(){}
     static let shared = CommonConstants()
+    let BASEURL = "https://api.myjson.com/bins/147vwo"
     var arrShuffeledWords = [String]()
     var arrActualRemovedWords = [String]()
     var arrUserInputtedWords = [Int : String]()
@@ -21,4 +22,5 @@ class CommonConstants{
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         vc.navigationController?.present(alert, animated: true, completion: nil)
     }
+    
 }

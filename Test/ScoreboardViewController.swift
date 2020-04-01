@@ -11,6 +11,7 @@ import UIKit
 class ScoreboardViewController: UIViewController {
 
     var arrWords = [String]()
+    var arrCorrectWordsIndex = [Int]()
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var collectionMain: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!{
@@ -26,7 +27,7 @@ class ScoreboardViewController: UIViewController {
         
         var arrUserInputtedWordsKeys = Array(CommonConstants.shared.arrUserInputtedWords.keys)
         arrUserInputtedWordsKeys.sort(by: <)
-        lblScore.text = "Score\n\(evaluate(keysForUSerInputes: arrUserInputtedWordsKeys))"
+        lblScore.text = "Score\n\(evaluate(keysForUSerInputes: arrUserInputtedWordsKeys)) / 10"
         collectionMain.reloadData()
     }
     
@@ -37,6 +38,7 @@ class ScoreboardViewController: UIViewController {
             if CommonConstants.shared.arrUserInputtedWords[keyNumber] ==  CommonConstants.shared.arrActualRemovedWords[index]{
                 score += 1
                 arrWords[keyNumber] = CommonConstants.shared.arrActualRemovedWords[index]
+                arrCorrectWordsIndex.append(keyNumber)
             }
             else{
                 arrWords[keyNumber] = "*\(CommonConstants.shared.arrActualRemovedWords[index]) / \(CommonConstants.shared.arrUserInputtedWords[keyNumber] ?? "")"
@@ -74,6 +76,9 @@ extension ScoreboardViewController: UICollectionViewDataSource, UICollectionView
         cell.lblWords.text = word
         if word.contains("*"){
             cell.lblWords.backgroundColor = UIColor.red
+        }
+        else if arrCorrectWordsIndex.contains(indexPath.row){
+            cell.lblWords.backgroundColor = UIColor.green
         }
         else{
             cell.lblWords.backgroundColor = UIColor.init(red: 239/255, green: 239/255, blue: 239/255, alpha: 1)
